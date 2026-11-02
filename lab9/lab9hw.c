@@ -4,43 +4,44 @@
 #include <locale.h>
 #include <math.h>
 
-int r()
+int input_r(void)
 {
-    int r;
+	int r;
 
-    printf("Ââåäèòå ðàäèóñ âïèñàííîé îêðóæíîñòè r (öåëîå ÷èñëî > 0): ");
-    while (scanf("%d", &r) != 1 || r <= 0)
-    {
-        while (getchar() != '\n');
-    }
-    return r;
+	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð´Ð¸ÑƒÑ Ð²Ð¿Ð¸ÑÐ°Ð½Ð½Ð¾Ð¹ Ð¾ÐºÑ€ÑƒÐ¶Ð½Ð¾ÑÑ‚Ð¸ r (Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ > 0): ");
+	while (scanf("%d", &r) != 1 || r <= 0)
+	{
+		while (getchar() != '\n');
+		printf("ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð±Ð¾Ð»ÑŒÑˆÐµ 0: ");
+	}
+	return r;
 }
 
 int main()
 {
-    setlocale(LC_ALL, "RUS");
+	setlocale(LC_ALL, "RUS");
 
-    char symbol;
-    int R, x, y;
+	char symbol;
+	int R, x, y;
 
-    printf("Ââåäèòå ñèìâîë äëÿ ðèñîâàíèÿ: ");
-    scanf(" %c", &symbol);
+	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¸Ð¼Ð²Ð¾Ð» Ð´Ð»Ñ Ñ€Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ñ: ");
+	scanf(" %c", &symbol);
 
-    R = (int)round(r() * sqrt(2.0));    
+	R = (int)round(input_r() * sqrt(2.0));
 
-    printf("\n");
-    for (y = -R; y <= R; y++)
-    {
-        for (x = -R; x <= R; x++)
-        {
-            if (abs(x) + abs(y) <= R)
-                printf("%c ", symbol);
-            else
-                printf("  ");
-        }
-        printf("\n");
-    }
+	printf("\n");
+	for (y = -R; y <= R; y++)
+	{
+		for (x = -R; x <= R; x++)
+		{
+			if (abs(x) + abs(y) <= R)
+				printf("%c ", symbol);
+			else
+				printf("  ");
+		}
+		printf("\n");
+	}
 
-    system("pause");
-    return 0;
+	system("pause");
+	return 0;
 }
