@@ -4,12 +4,12 @@
 #include <locale.h>
 #include <math.h>
 
-int input_r(void)
+int r()
 {
-	int r;
+	int s;
 
 	printf("Введите радиус вписанной окружности r (целое число > 0): ");
-	while (scanf("%d", &r) != 1 || r <= 0)
+	while (scanf("%d", &s) != 1 || s <= 0)
 	{
 		while (getchar() != '\n');
 		printf("Ошибка! Введите целое число больше 0: ");
@@ -27,7 +27,7 @@ int main()
 	printf("Введите символ для рисования: ");
 	scanf(" %c", &symbol);
 
-	R = (int)round(input_r() * sqrt(2.0));
+	R = (int)round(r() * sqrt(2.0));
 
 	printf("\n");
 	for (y = -R; y <= R; y++)
